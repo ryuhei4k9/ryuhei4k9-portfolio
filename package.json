@@ -1,0 +1,21 @@
+{
+  "name": "ryuhei4k9-portfolio",
+  "version": "1.0.0",
+  "description": "My scrumtrulescent Nuxt.js project",
+  "author": "ryuhei4k9",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.0.0",
+    "@nuxtjs/bulma": "^1.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
