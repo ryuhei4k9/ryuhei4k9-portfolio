@@ -38,9 +38,9 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: [,
-    // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma'
+  modules: [
+    '@nuxtjs/bulma',
+    '@nuxtjs/apollo'
   ],
 
   /*
@@ -59,6 +59,12 @@ module.exports = {
     */
     extend(config, ctx) {
       
+    }
+  },
+  
+  apollo: {
+    clientConfigs: {
+      default: '~/apollo/client-configs/default.js'
     }
   }
 }

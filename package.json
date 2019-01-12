@@ -11,9 +11,13 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/apollo": "^4.0.0-rc2.3",
+    "@nuxtjs/bulma": "^1.2.0",
+    "apollo-link-http": "^1.5.9",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.0.0",
-    "@nuxtjs/bulma": "^1.2.0"
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0",
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
