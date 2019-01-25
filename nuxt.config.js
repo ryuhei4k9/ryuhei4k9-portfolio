@@ -33,6 +33,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/date_fns'
   ],
 
   /*
@@ -40,7 +41,8 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/bulma',
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    '@nuxtjs/markdownit'
   ],
 
   /*
@@ -66,5 +68,9 @@ module.exports = {
     clientConfigs: {
       default: '~/apollo/client-configs/default.js'
     }
+  },
+
+  markdownit: {
+    injected: true
   }
 }
