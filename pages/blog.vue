@@ -1,34 +1,16 @@
 <template>
-  <div>
-    <div v-for="post in posts" :key="post.id">
-      <section class="section">
-        <div class="container">
-          <h1 class="title">{{ post.title }}</h1>
-          <h2 class="subtitle">{{ $date_format(post.createdAt, "YYYY/MM/DD hh:mm:ss") }}</h2>
-          <div class="content" v-html="$md.render(post.content)"></div>
-        </div>
-      </section>
-    </div>
-  </div>
+  <posts/>
 </template>
 
 <script>
-import posts from '~/apollo/queries/posts'
+import Posts from '~/components/Posts'
 
 export default {
   head: {
     title: 'Blog'
   },
-  name: 'posts',
-  data () {
-    return {
-      posts: {}
-    }
-  },
-  apollo: {
-    posts: {
-      query: posts
-    }
+  components: {
+    Posts
   }
 }
 </script>
