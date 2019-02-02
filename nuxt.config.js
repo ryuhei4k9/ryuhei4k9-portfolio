@@ -63,6 +63,13 @@ module.exports = {
       
     }
   },
+
+  generate: {
+    routes: [
+      '/blog/ginza-rails-5',
+      '/blog/display-test',
+    ]
+  },
   
   apollo: {
     clientConfigs: {
