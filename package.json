@@ -15,6 +15,7 @@
     "@nuxtjs/bulma": "^1.2.0",
     "@nuxtjs/markdownit": "^1.2.3",
     "apollo-link-http": "^1.5.9",
+    "axios": "^0.18.0",
     "cross-env": "^5.2.0",
     "date-fns": "^1.30.1",
     "graphql": "^14.0.2",
