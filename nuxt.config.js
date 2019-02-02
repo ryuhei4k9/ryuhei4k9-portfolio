@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const { createApolloFetch } = require('apollo-fetch')
 
 module.exports = {
   mode: 'universal',
@@ -65,10 +66,38 @@ module.exports = {
   },
 
   generate: {
-    routes: [
-      '/blog/ginza-rails-5',
-      '/blog/display-test',
-    ]
+    routes () {
+      const uri = 'https://api-apeast.graphcms.com/v1/cjqt57xvb2q7c01eqlmj2n8y7/master'
+      const apolloFetch = createApolloFetch({ uri })
+      const query = `
+      query {
+        posts(orderBy: createdAt_DESC, where: { status: PUBLISHED }) {
+          id
+          title
+          content
+          createdAt
+          slug
+          thumbnail {
+            url
+          }
+        }
+      }
+      `
+      return apolloFetch({ query }) // all apolloFetch arguments are optional 
+        .then(result => {
+          const { data } = result
+          return data.posts.map(post => {
+            return {
+              route: `/blog/${post.slug}`,
+              payload: post
+            }
+          })
+        })
+        .catch(error => {
+          console.log('got error')
+          console.log(error)
+        })
+    }
   },
   
   apollo: {

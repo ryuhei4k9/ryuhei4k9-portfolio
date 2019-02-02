@@ -1,13 +1,19 @@
 <template>
   <div>
-    {{ status }}
-    <posts/>
+    <div v-for="post in posts" :key="post.id">
+      <section class="section">
+        <div class="container">
+          <h1 class="title"><nuxt-link :to="`/blog/${ post.slug }`">{{ post.title }}</nuxt-link></h1>
+          <h2 class="subtitle">{{ $date_format(post.createdAt, "YYYY/MM/DD hh:mm:ss") }}</h2>
+          <!-- <div class="content" v-html="$md.render(post.content)"></div> -->
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 
 <script>
-import Posts from '~/components/Posts'
-import axios from 'axios'
+import posts from '~/apollo/queries/posts'
 
 export default {
   head: {
@@ -15,18 +21,14 @@ export default {
   },
   data () {
     return {
-      status: '',
-      prefecture: '',
-      city: '',
-      town: ''
+      posts: {}
     }
   },
-  async asyncData ({}) {
-    const response = await axios.get('http://zipcloud.ibsnet.co.jp/api/search?zipcode=1040032')
-    return { status: response.data.status }
-  },
-  components: {
-    Posts
+  apollo: {
+    posts: {
+      query: posts,
+      prefetch: true
+    }
   }
 }
 </script>

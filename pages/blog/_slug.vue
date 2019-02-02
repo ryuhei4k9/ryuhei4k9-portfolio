@@ -9,25 +9,14 @@
 </template>
 
 <script>
-import post from '~/apollo/queries/post'
-
 export default {
   head: {
     title: 'Blog'
   },
-  data () {
-    return {
-      post: {}
-    }
-  },
-  apollo: {
-    post: {
-      query: post,
-      variables () {
-        return {
-          slug: this.$route.params.slug
-        }
-      }
+  async asyncData({ route, app, store, payload }) {
+    if (payload) {
+      const post = payload
+      return { post: post }
     }
   }
 }
